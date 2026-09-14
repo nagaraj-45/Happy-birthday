@@ -1,0 +1,2739 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+
+    font-family: "Poppins", sans-serif;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #82194c 0%,
+            #4e102f 35%,
+            #290b1d 70%,
+            #10040b 100%
+        );
+}
+
+
+/* =====================================================
+   PAGE 0
+===================================================== */
+
+.page-zero {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background: #000;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    z-index: 1000;
+
+    opacity: 1;
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.page-zero-glow {
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 0, 102, .25);
+
+    filter: blur(90px);
+
+    animation:
+        pageZeroGlow
+        2.5s
+        ease-in-out
+        infinite;
+}
+
+@keyframes pageZeroGlow {
+
+    0% {
+        transform: scale(.7);
+        opacity: .35;
+    }
+
+    50% {
+        transform: scale(1.25);
+        opacity: .8;
+    }
+
+    100% {
+        transform: scale(.7);
+        opacity: .35;
+    }
+}
+
+.page-zero-heart {
+    position: relative;
+
+    width: 95px;
+    height: 95px;
+
+    background: #ff0066;
+
+    transform: rotate(-45deg);
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    z-index: 5;
+
+    box-shadow:
+        0 0 10px #ff0066,
+        0 0 25px #ff0066,
+        0 0 50px #ff0066,
+        0 0 90px rgba(255, 0, 102, .8);
+
+    animation:
+        pageZeroHeartBeat
+        1.6s
+        ease-in-out
+        infinite;
+}
+
+.page-zero-heart::before {
+    content: "";
+
+    position: absolute;
+
+    width: 95px;
+    height: 95px;
+
+    background: #ff0066;
+
+    border-radius: 50%;
+
+    top: -47px;
+    left: 0;
+}
+
+.page-zero-heart::after {
+    content: "";
+
+    position: absolute;
+
+    width: 95px;
+    height: 95px;
+
+    background: #ff0066;
+
+    border-radius: 50%;
+
+    top: 0;
+    left: 47px;
+}
+
+@keyframes pageZeroHeartBeat {
+
+    0%,100% {
+        transform: rotate(-45deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(-45deg) scale(1.16);
+    }
+}
+
+
+/* =====================================================
+   PAGE 1
+===================================================== */
+
+.intro-screen {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    z-index: 10;
+}
+
+.glow {
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,20,110,.18);
+
+    filter: blur(90px);
+
+    animation:
+        glowPulse
+        4s
+        ease-in-out
+        infinite;
+}
+
+@keyframes glowPulse {
+
+    0% {
+        transform: scale(.9);
+        opacity: .4;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: .8;
+    }
+
+    100% {
+        transform: scale(.9);
+        opacity: .4;
+    }
+}
+
+.content {
+    position: relative;
+
+    z-index: 30;
+
+    width: 90%;
+
+    max-width: 700px;
+}
+
+.main-heart {
+    position: relative;
+
+    width: 75px;
+    height: 75px;
+
+    margin: 0 auto 35px;
+
+    transform: rotate(-45deg);
+
+    background: #e9005f;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 0 15px #ff176f,
+        0 0 35px #ff176f,
+        0 0 70px rgba(255,23,111,.6);
+
+    animation:
+        heartBeat
+        1.4s
+        ease-in-out
+        infinite;
+}
+
+.main-heart::before,
+.main-heart::after {
+    content: "";
+
+    position: absolute;
+
+    width: 75px;
+    height: 75px;
+
+    background: #e9005f;
+
+    border-radius: 50%;
+}
+
+.main-heart::before {
+    top: -37px;
+    left: 0;
+}
+
+.main-heart::after {
+    top: 0;
+    left: 37px;
+}
+
+@keyframes heartBeat {
+
+    0%,100% {
+        transform: rotate(-45deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(-45deg) scale(1.15);
+    }
+}
+
+.small-text {
+    font-size: 14px;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+    color: #ffb4d0;
+
+    margin-bottom: 22px;
+}
+
+.intro-title {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(48px,8vw,82px);
+
+    line-height: 1;
+
+    font-weight: 600;
+
+    text-shadow:
+        0 0 10px #ff3f87,
+        0 0 30px rgba(255,23,111,.7);
+}
+
+.subtitle {
+    margin-top: 22px;
+
+    color: #f8c5d9;
+
+    font-size: 15px;
+}
+
+.begin-btn {
+    margin-top: 38px;
+
+    padding: 15px 36px;
+
+    border-radius: 50px;
+
+    border:
+        1px solid
+        rgba(255,150,195,.6);
+
+    background:
+        rgba(255,255,255,.08);
+
+    color: white;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+
+    transition: .35s ease;
+}
+
+.begin-btn:hover {
+    background: #e9005f;
+
+    transform:
+        translateY(-4px)
+        scale(1.05);
+}
+
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+.pink-heart {
+    position: fixed;
+
+    top: -70px;
+
+    width: 25px;
+    height: 25px;
+
+    background: #ff0a68;
+
+    transform: rotate(-45deg);
+
+    z-index: 60;
+
+    pointer-events: none;
+
+    box-shadow:
+        0 0 8px #ff0a68,
+        0 0 18px rgba(255,10,104,.9),
+        0 0 30px rgba(255,10,104,.5);
+
+    animation:
+        pinkHeartFall
+        linear
+        forwards;
+}
+
+.pink-heart::before {
+    content: "";
+
+    position: absolute;
+
+    width: 25px;
+    height: 25px;
+
+    background: #ff0a68;
+
+    border-radius: 50%;
+
+    top: -12px;
+    left: 0;
+}
+
+.pink-heart::after {
+    content: "";
+
+    position: absolute;
+
+    width: 25px;
+    height: 25px;
+
+    background: #ff0a68;
+
+    border-radius: 50%;
+
+    top: 0;
+    left: 12px;
+}
+
+@keyframes pinkHeartFall {
+
+    0% {
+        transform:
+            translateY(-100px)
+            rotate(-45deg)
+            scale(.5);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: .95;
+    }
+
+    100% {
+        transform:
+            translateY(115vh)
+            rotate(-45deg)
+            scale(.7);
+
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================
+   PAGE 2
+===================================================== */
+
+.birthday-screen {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    display: none;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    overflow-y: auto;
+
+    overflow-x: hidden;
+
+    padding: 70px 20px 100px;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            #861c50 0%,
+            #4e102f 40%,
+            #210817 75%,
+            #0d0309 100%
+        );
+
+    z-index: 50;
+}
+
+.birthday-heading {
+    margin-top: 20px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(65px,12vw,140px);
+
+    line-height: .85;
+
+    font-weight: 700;
+
+    text-shadow:
+        0 0 10px #ff0a68,
+        0 0 25px #ff0a68,
+        0 0 50px #ff0a68;
+}
+
+.birthday-subtext {
+    margin-top: 25px;
+
+    font-size: 18px;
+
+    color: #ffd0e1;
+}
+
+.photos-title {
+    margin-top: 45px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 34px;
+}
+
+.photo-grid {
+    width: 100%;
+
+    max-width: 950px;
+
+    margin-top: 25px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 20px;
+}
+
+.photo-card {
+    padding: 10px;
+
+    background: white;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.4),
+        0 0 20px rgba(255,10,104,.35);
+}
+
+.photo-card img {
+    width: 100%;
+
+    height: 230px;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 4px;
+}
+
+.next-btn {
+    margin-top: 35px;
+
+    padding: 14px 42px;
+
+    border-radius: 50px;
+
+    border:
+        1px solid
+        rgba(255,180,210,.65);
+
+    background:
+        rgba(255,255,255,.08);
+
+    color: white;
+
+    font-size: 15px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: .35s ease;
+}
+
+.next-btn:hover {
+    background: #e9005f;
+
+    transform:
+        translateY(-4px)
+        scale(1.05);
+}
+
+
+/* =====================================================
+   PAGE 3
+===================================================== */
+
+.letter-screen {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    display: none;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    overflow-y: auto;
+
+    overflow-x: hidden;
+
+    padding: 45px 20px 100px;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            #861c50 0%,
+            #4e102f 40%,
+            #210817 75%,
+            #0d0309 100%
+        );
+
+    z-index: 70;
+}
+
+.letter-small-title {
+    color: #ffb4d0;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 12px;
+}
+
+.letter-title {
+    margin-top: 10px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(52px,8vw,90px);
+
+    line-height: .85;
+
+    font-weight: 700;
+
+    text-shadow:
+        0 0 15px #ff0a68,
+        0 0 35px rgba(255,10,104,.7);
+}
+
+.letter-title span {
+    color: #ffb6d2;
+}
+
+.envelope-container {
+    position: relative;
+
+    width: 540px;
+
+    max-width: 92vw;
+
+    height: 340px;
+
+    margin-top: 48px;
+}
+
+.envelope {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f2c4d5,
+            #d985aa
+        );
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.55),
+        0 0 35px rgba(255,10,104,.25);
+}
+
+.letter-paper {
+    position: absolute;
+
+    left: 5%;
+
+    bottom: 18px;
+
+    width: 90%;
+
+    height: 300px;
+
+    background: #fff;
+
+    color: #30232a;
+
+    border-radius: 3px;
+
+    z-index: 1;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    overflow: hidden;
+
+    transform:
+        translateY(0)
+        scale(.96);
+
+    transition:
+        opacity .3s ease,
+        visibility .3s ease,
+        transform .8s ease,
+        width .8s ease,
+        height .8s ease,
+        left .8s ease,
+        top .8s ease;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.18);
+}
+
+.paper-top-line {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 5px;
+
+    background:
+        linear-gradient(
+            to right,
+            #fff,
+            #e8e8e8,
+            #fff
+        );
+}
+
+.paper-content {
+    padding:
+        55px 70px 70px;
+
+    text-align: left;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-weight: 700;
+}
+
+.letter-date {
+    text-align: right;
+
+    font-size: 23px;
+
+    color: #555;
+
+    margin-bottom: 30px;
+}
+
+.paper-content h2 {
+    font-size: 40px;
+
+    color: #30232a;
+
+    margin-bottom: 28px;
+}
+
+.paper-content p {
+    font-size: 23px;
+
+    line-height: 1.55;
+
+    color: #30232a;
+
+    margin-bottom: 18px;
+}
+
+.final-line {
+    margin-top: 40px;
+
+    padding-top: 25px;
+
+    border-top:
+        1px solid
+        #d9d9d9;
+
+    text-align: center;
+
+    font-size: 28px !important;
+
+    color: #4b2637 !important;
+}
+
+.signature {
+    margin-top: 30px;
+
+    text-align: right;
+
+    font-size: 28px;
+
+    color: #4b2637;
+}
+
+.continue-area {
+    margin-top: 55px;
+
+    padding-top: 30px;
+
+    border-top:
+        1px solid
+        #ddd;
+
+    text-align: center;
+}
+
+.continue-text {
+    font-size: 21px;
+
+    color: #777;
+
+    margin-bottom: 18px;
+}
+
+.continue-next-btn {
+    padding:
+        13px 35px;
+
+    border-radius: 40px;
+
+    border:
+        1px solid
+        #bbb;
+
+    background: #fff;
+
+    color: #30232a;
+
+    font-size: 14px;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    transition: .35s ease;
+}
+
+.continue-next-btn:hover {
+    background: #30232a;
+
+    color: white;
+
+    transform:
+        translateY(-3px)
+        scale(1.04);
+}
+
+.envelope-flap {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #df8eaf,
+            #c96c98
+        );
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 60%
+        );
+
+    transform-origin: top center;
+
+    z-index: 8;
+
+    transition:
+        transform .8s ease;
+}
+
+.envelope-front {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #efbfd0,
+            #d98cac
+        );
+
+    border-radius: 12px;
+
+    z-index: 9;
+
+    transition:
+        opacity .5s ease;
+}
+
+.envelope-heart {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    z-index: 20;
+
+    font-size: 48px;
+
+    animation:
+        envelopeHeartBeat
+        1.5s
+        ease-in-out
+        infinite;
+}
+
+@keyframes envelopeHeartBeat {
+
+    0%,100% {
+        transform:
+            translate(-50%,-50%)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(-50%,-50%)
+            scale(1.12);
+    }
+}
+
+.envelope-container.open .envelope-flap {
+    transform:
+        rotateX(180deg);
+}
+
+.envelope-container.open .envelope-front {
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+.envelope-container.open .envelope-heart {
+    opacity: 0;
+}
+
+.envelope-container.open .letter-paper {
+
+    position: fixed;
+
+    top: 55px;
+
+    left: 50%;
+
+    width: min(900px,92vw);
+
+    height: calc(100vh - 70px);
+
+    opacity: 1;
+
+    visibility: visible;
+
+    z-index: 200;
+
+    transform:
+        translateX(-50%)
+        scale(1);
+
+    overflow-y: auto;
+}
+
+.open-letter-btn {
+    margin-top: 60px;
+
+    padding: 15px 40px;
+
+    border-radius: 50px;
+
+    border:
+        1px solid
+        rgba(255,180,210,.7);
+
+    background:
+        rgba(255,255,255,.09);
+
+    color: white;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: .35s ease;
+
+    position: relative;
+
+    z-index: 300;
+}
+
+
+/* =====================================================
+   PAGE 4
+===================================================== */
+
+.page-four {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    display: none;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            #521631 0%,
+            #260b1b 48%,
+            #0b0308 100%
+        );
+
+    z-index: 500;
+
+    text-align: center;
+}
+
+
+/* =====================================================
+   PAGE 4 SMALL HEARTS
+===================================================== */
+
+.page4-heart {
+
+    position: absolute;
+
+    color: #ff4f98;
+
+    font-size: 20px;
+
+    opacity: .45;
+
+    text-shadow:
+        0 0 12px #ff277e;
+
+    animation:
+        page4HeartFloat
+        5s
+        ease-in-out
+        infinite;
+
+    pointer-events: none;
+}
+
+.heart1 {
+    left: 8%;
+    top: 75%;
+    animation-delay: 0s;
+}
+
+.heart2 {
+    left: 18%;
+    top: 25%;
+    animation-delay: 1s;
+}
+
+.heart3 {
+    right: 12%;
+    top: 30%;
+    animation-delay: 2s;
+}
+
+.heart4 {
+    right: 7%;
+    top: 72%;
+    animation-delay: 3s;
+}
+
+.heart5 {
+    left: 50%;
+    top: 12%;
+    animation-delay: 1.5s;
+}
+
+@keyframes page4HeartFloat {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            rotate(-10deg)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translateY(-25px)
+            rotate(10deg)
+            scale(1.15);
+    }
+}
+
+
+/* =====================================================
+   GIFT INTRO
+===================================================== */
+
+.gift-intro {
+
+    position: absolute;
+
+    top: 55px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 90%;
+
+    z-index: 20;
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.gift-small-text {
+
+    color: #f6aac8;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 15px;
+}
+
+.gift-intro h1 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(48px,7vw,78px);
+
+    line-height: .9;
+
+    font-weight: 700;
+
+    text-shadow:
+        0 0 15px rgba(255,42,130,.6);
+}
+
+.gift-intro h1 span {
+
+    color: #ffb7d2;
+}
+
+.gift-intro p {
+
+    margin-top: 18px;
+
+    font-size: 14px;
+
+    color: #e8b5c9;
+
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   GIFT AREA
+===================================================== */
+
+.gift-area {
+
+    position: absolute;
+
+    left: 50%;
+    top: 58%;
+
+    transform:
+        translate(-50%,-50%);
+
+    z-index: 30;
+
+    transition:
+        transform 1s ease,
+        opacity .7s ease;
+}
+
+.gift-box {
+
+    position: relative;
+
+    width: 230px;
+    height: 190px;
+
+    cursor: pointer;
+
+    filter:
+        drop-shadow(
+            0 25px 25px
+            rgba(0,0,0,.5)
+        );
+
+    animation:
+        giftFloat
+        2.8s
+        ease-in-out
+        infinite;
+
+    transition:
+        transform .5s ease;
+}
+
+.gift-box:hover {
+
+    transform:
+        scale(1.05);
+}
+
+@keyframes giftFloat {
+
+    0%,100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-10px);
+    }
+}
+
+
+/* =====================================================
+   GIFT BODY
+===================================================== */
+
+.gift-body {
+
+    position: absolute;
+
+    bottom: 0;
+    left: 15px;
+
+    width: 200px;
+    height: 145px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d9256f,
+            #9d124e
+        );
+
+    border-radius:
+        4px 4px 10px 10px;
+
+    box-shadow:
+        inset 8px 0 15px
+        rgba(255,255,255,.12),
+
+        inset -8px 0 15px
+        rgba(0,0,0,.18);
+}
+
+
+/* Vertical ribbon */
+
+.gift-body-ribbon {
+
+    position: absolute;
+
+    left: 82px;
+
+    top: 0;
+
+    width: 36px;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffd0df,
+            #ff78aa,
+            #ffd0df
+        );
+
+    box-shadow:
+        0 0 10px
+        rgba(255,160,195,.35);
+}
+
+
+/* Shine */
+
+.gift-shine {
+
+    position: absolute;
+
+    top: 15px;
+    left: 20px;
+
+    width: 60px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.3);
+
+    filter: blur(2px);
+
+    transform:
+        rotate(-15deg);
+}
+
+
+/* =====================================================
+   GIFT LID
+===================================================== */
+
+.gift-lid {
+
+    position: absolute;
+
+    left: 0;
+    top: 20px;
+
+    width: 230px;
+    height: 48px;
+
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f03a7d,
+            #b51659
+        );
+
+    z-index: 5;
+
+    box-shadow:
+        0 8px 12px
+        rgba(0,0,0,.3);
+
+    transform-origin:
+        center bottom;
+
+    transition:
+        transform 1s cubic-bezier(.2,.8,.2,1),
+        opacity .6s ease;
+}
+
+
+/* Horizontal ribbon */
+
+.gift-ribbon-horizontal {
+
+    position: absolute;
+
+    left: 0;
+    top: 17px;
+
+    width: 100%;
+    height: 14px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffd0df,
+            #ff78aa,
+            #ffd0df
+        );
+}
+
+
+/* =====================================================
+   BOW
+===================================================== */
+
+.ribbon-bow {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: -34px;
+
+    transform:
+        translateX(-50%);
+
+    width: 100px;
+
+    height: 65px;
+}
+
+.bow-left,
+.bow-right {
+
+    position: absolute;
+
+    top: 10px;
+
+    width: 50px;
+    height: 42px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffb5d0,
+            #e74782
+        );
+
+    border:
+        2px solid
+        rgba(255,210,225,.5);
+
+    border-radius:
+        60% 20% 60% 20%;
+
+    box-shadow:
+        0 5px 12px
+        rgba(0,0,0,.25);
+}
+
+.bow-left {
+
+    left: 0;
+
+    transform:
+        rotate(25deg);
+}
+
+.bow-right {
+
+    right: 0;
+
+    transform:
+        rotate(-25deg)
+        scaleX(-1);
+}
+
+.bow-center {
+
+    position: absolute;
+
+    left: 50%;
+    top: 25px;
+
+    transform:
+        translateX(-50%);
+
+    width: 28px;
+    height: 28px;
+
+    border-radius: 50%;
+
+    background:
+        #ff7aaa;
+
+    border:
+        2px solid
+        #ffd4e3;
+
+    z-index: 5;
+}
+
+
+/* =====================================================
+   VERTICAL RIBBON ON LID
+===================================================== */
+
+.gift-ribbon-vertical {
+
+    position: absolute;
+
+    left: 97px;
+
+    top: 20px;
+
+    width: 36px;
+
+    height: 48px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffd0df,
+            #ff78aa,
+            #ffd0df
+        );
+
+    z-index: 7;
+}
+
+
+/* =====================================================
+   CLICK TEXT
+===================================================== */
+
+.gift-click-text {
+
+    position: absolute;
+
+    top: calc(58% + 125px);
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    color: #ffc8dc;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    animation:
+        clickPulse
+        1.5s
+        ease-in-out
+        infinite;
+
+    transition:
+        opacity .5s ease;
+}
+
+@keyframes clickPulse {
+
+    0%,100% {
+        opacity: .55;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+/* =====================================================
+   GIFT OPEN STATE
+===================================================== */
+
+.page-four.gift-open
+.gift-lid {
+
+    transform:
+        translateY(-100px)
+        rotate(-12deg);
+}
+
+.page-four.gift-open
+.gift-box {
+
+    animation: none;
+}
+
+.page-four.gift-open
+.gift-intro {
+
+    opacity: 0;
+
+    transform:
+        translateX(-50%)
+        translateY(-30px);
+}
+
+.page-four.gift-open
+.gift-click-text {
+
+    opacity: 0;
+}
+
+.page-four.gift-open
+.gift-area {
+
+    transform:
+        translate(-50%,-50%)
+        scale(.8);
+
+    opacity: .3;
+}
+
+
+/* =====================================================
+   SUNFLOWER FIELD
+===================================================== */
+
+.sunflower-field {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 40;
+
+    opacity: 0;
+}
+
+
+/* Individual flower */
+
+.mini-sunflower {
+
+    position: absolute;
+
+    width: 55px;
+    height: 55px;
+
+    left: 50%;
+    top: 62%;
+
+    transform:
+        translate(-50%,-50%)
+        scale(.1);
+
+    opacity: 0;
+}
+
+
+/* Flower positions */
+
+.flower1 {
+    margin-left: -150px;
+}
+
+.flower2 {
+    margin-left: -85px;
+}
+
+.flower3 {
+    margin-left: -30px;
+}
+
+.flower4 {
+    margin-left: 35px;
+}
+
+.flower5 {
+    margin-left: 95px;
+}
+
+.flower6 {
+    margin-left: 155px;
+}
+
+.flower7 {
+    margin-left: -120px;
+    top: 50%;
+}
+
+.flower8 {
+    margin-left: 125px;
+    top: 50%;
+}
+
+
+/* =====================================================
+   MINI PETALS
+===================================================== */
+
+.mini-sunflower .petal {
+
+    position: absolute;
+
+    width: 24px;
+    height: 38px;
+
+    left: 50%;
+    top: 50%;
+
+    transform-origin:
+        50% 100%;
+
+    border-radius:
+        70% 70% 45% 45%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffe56b,
+            #e9a600
+        );
+
+    box-shadow:
+        0 0 7px
+        rgba(255,194,45,.55);
+}
+
+
+/* 8 petals */
+
+.mini-sunflower .p1 {
+    transform:
+        translate(-50%,-100%)
+        rotate(0deg);
+}
+
+.mini-sunflower .p2 {
+    transform:
+        translate(-50%,-100%)
+        rotate(45deg);
+}
+
+.mini-sunflower .p3 {
+    transform:
+        translate(-50%,-100%)
+        rotate(90deg);
+}
+
+.mini-sunflower .p4 {
+    transform:
+        translate(-50%,-100%)
+        rotate(135deg);
+}
+
+.mini-sunflower .p5 {
+    transform:
+        translate(-50%,-100%)
+        rotate(180deg);
+}
+
+.mini-sunflower .p6 {
+    transform:
+        translate(-50%,-100%)
+        rotate(225deg);
+}
+
+.mini-sunflower .p7 {
+    transform:
+        translate(-50%,-100%)
+        rotate(270deg);
+}
+
+.mini-sunflower .p8 {
+    transform:
+        translate(-50%,-100%)
+        rotate(315deg);
+}
+
+
+/* Mini center */
+
+.mini-sunflower .flower-center {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    width: 25px;
+    height: 25px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #a84c08,
+            #552006
+        );
+
+    z-index: 5;
+}
+
+
+/* =====================================================
+   SUNFLOWER ANIMATION
+===================================================== */
+
+.page-four.gift-open
+.sunflower-field {
+
+    opacity: 1;
+}
+
+
+.page-four.gift-open
+.flower1 {
+
+    animation:
+        flowerPop1
+        1.3s
+        .1s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+}
+
+.page-four.gift-open
+.flower2 {
+
+    animation:
+        flowerPop2
+        1.3s
+        .25s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+}
+
+.page-four.gift-open
+.flower3 {
+
+    animation:
+        flowerPop3
+        1.3s
+        .4s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+}
+
+.page-four.gift-open
+.flower4 {
+
+    animation:
+        flowerPop4
+        1.3s
+        .55s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+}
+
+.page-four.gift-open
+.flower5 {
+
+    animation:
+        flowerPop5
+        1.3s
+        .7s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+}
+
+.page-four.gift-open
+.flower6 {
+
+    animation:
+        flowerPop6
+        1.3s
+        .85s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+}
+
+.page-four.gift-open
+.flower7 {
+
+    animation:
+        flowerPop7
+        1.3s
+        1s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+}
+
+.page-four.gift-open
+.flower8 {
+
+    animation:
+        flowerPop8
+        1.3s
+        1.15s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+}
+
+
+@keyframes flowerPop1 {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%,-50%)
+            translate(0,100px)
+            scale(.1);
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translate(-50%,-50%)
+            translate(-70px,-130px)
+            scale(1);
+    }
+}
+
+@keyframes flowerPop2 {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%,-50%)
+            translate(0,100px)
+            scale(.1);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translate(-50%,-50%)
+            translate(-35px,-190px)
+            scale(1);
+    }
+}
+
+@keyframes flowerPop3 {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%,-50%)
+            translate(0,100px)
+            scale(.1);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translate(-50%,-50%)
+            translate(0,-160px)
+            scale(1);
+    }
+}
+
+@keyframes flowerPop4 {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%,-50%)
+            translate(0,100px)
+            scale(.1);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translate(-50%,-50%)
+            translate(40px,-190px)
+            scale(1);
+    }
+}
+
+@keyframes flowerPop5 {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%,-50%)
+            translate(0,100px)
+            scale(.1);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translate(-50%,-50%)
+            translate(80px,-125px)
+            scale(1);
+    }
+}
+
+@keyframes flowerPop6 {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%,-50%)
+            translate(0,100px)
+            scale(.1);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translate(-50%,-50%)
+            translate(125px,-75px)
+            scale(1);
+    }
+}
+
+@keyframes flowerPop7 {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%,-50%)
+            translate(0,100px)
+            scale(.1);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translate(-50%,-50%)
+            translate(-105px,-205px)
+            scale(.8);
+    }
+}
+
+@keyframes flowerPop8 {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%,-50%)
+            translate(0,100px)
+            scale(.1);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translate(-50%,-50%)
+            translate(105px,-205px)
+            scale(.8);
+    }
+}
+
+
+/* =====================================================
+   BIG SUNFLOWER
+===================================================== */
+
+.big-sunflower-area {
+
+    position: absolute;
+
+    left: 50%;
+    top: 57%;
+
+    transform:
+        translate(-50%,-50%);
+
+    width: 400px;
+    height: 480px;
+
+    z-index: 100;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 1s ease;
+}
+
+
+.page-four.show-big-flower
+.big-sunflower-area {
+
+    opacity: 1;
+}
+
+
+/* Main flower */
+
+.big-sunflower {
+
+    position: relative;
+
+    width: 280px;
+    height: 360px;
+
+    margin: auto;
+
+    transform-origin:
+        bottom center;
+
+    transform:
+        scaleY(0);
+
+    animation:
+        none;
+}
+
+
+.page-four.show-big-flower
+.big-sunflower {
+
+    animation:
+        flowerGrow
+        2.2s
+        cubic-bezier(.25,.8,.25,1)
+        forwards;
+}
+
+
+@keyframes flowerGrow {
+
+    0% {
+        transform:
+            scaleY(0)
+            translateY(80px);
+    }
+
+    65% {
+        transform:
+            scaleY(1.05)
+            translateY(-5px);
+    }
+
+    100% {
+        transform:
+            scaleY(1)
+            translateY(0);
+    }
+}
+
+
+/* =====================================================
+   BIG PETALS
+===================================================== */
+
+.big-petals {
+
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    left: 25px;
+    top: 10px;
+
+    transform:
+        rotate(-8deg);
+}
+
+
+.big-petals span {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 48px;
+    height: 105px;
+
+    transform-origin:
+        50% 100%;
+
+    border-radius:
+        65% 65% 48% 48%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff08a,
+            #ffc400 60%,
+            #e99b00
+        );
+
+    box-shadow:
+        0 0 12px
+        rgba(255,193,7,.4);
+
+    opacity: 0;
+
+    animation:
+        petalDraw
+        .8s
+        ease
+        forwards;
+}
+
+
+.page-four.show-big-flower
+.big-petals span {
+
+    animation:
+        petalDraw
+        .8s
+        ease
+        forwards;
+}
+
+
+.big-petals span:nth-child(1) {
+    transform:
+        translate(-50%,-100%)
+        rotate(0deg);
+    animation-delay: 1.2s;
+}
+
+.big-petals span:nth-child(2) {
+    transform:
+        translate(-50%,-100%)
+        rotate(30deg);
+    animation-delay: 1.25s;
+}
+
+.big-petals span:nth-child(3) {
+    transform:
+        translate(-50%,-100%)
+        rotate(60deg);
+    animation-delay: 1.3s;
+}
+
+.big-petals span:nth-child(4) {
+    transform:
+        translate(-50%,-100%)
+        rotate(90deg);
+    animation-delay: 1.35s;
+}
+
+.big-petals span:nth-child(5) {
+    transform:
+        translate(-50%,-100%)
+        rotate(120deg);
+    animation-delay: 1.4s;
+}
+
+.big-petals span:nth-child(6) {
+    transform:
+        translate(-50%,-100%)
+        rotate(150deg);
+    animation-delay: 1.45s;
+}
+
+.big-petals span:nth-child(7) {
+    transform:
+        translate(-50%,-100%)
+        rotate(180deg);
+    animation-delay: 1.5s;
+}
+
+.big-petals span:nth-child(8) {
+    transform:
+        translate(-50%,-100%)
+        rotate(210deg);
+    animation-delay: 1.55s;
+}
+
+.big-petals span:nth-child(9) {
+    transform:
+        translate(-50%,-100%)
+        rotate(240deg);
+    animation-delay: 1.6s;
+}
+
+.big-petals span:nth-child(10) {
+    transform:
+        translate(-50%,-100%)
+        rotate(270deg);
+    animation-delay: 1.65s;
+}
+
+.big-petals span:nth-child(11) {
+    transform:
+        translate(-50%,-100%)
+        rotate(300deg);
+    animation-delay: 1.7s;
+}
+
+.big-petals span:nth-child(12) {
+    transform:
+        translate(-50%,-100%)
+        rotate(330deg);
+    animation-delay: 1.75s;
+}
+
+
+@keyframes petalDraw {
+
+    from {
+        opacity: 0;
+
+        height: 0;
+    }
+
+    to {
+        opacity: 1;
+
+        height: 105px;
+    }
+}
+
+
+/* =====================================================
+   BIG SUNFLOWER IMAGE
+===================================================== */
+
+.big-sunflower-area {
+
+    position: absolute;
+
+    left: 50%;
+    top: 57%;
+
+    transform:
+        translate(-50%,-50%);
+
+    width: 400px;
+    height: 480px;
+
+    z-index: 100;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 1s ease;
+}
+
+
+.page-four.show-big-flower
+.big-sunflower-area {
+
+    opacity: 1;
+}
+
+
+/* Sunflower Image */
+
+.big-sunflower-image {
+
+    position: absolute;
+
+    left: 50%;
+    top: 42%;
+
+    transform:
+        translate(-50%,-50%)
+        scale(.7);
+
+    width: 500px;
+    height: auto;
+
+    max-width: 80vw;
+    max-height: 380px;
+
+    object-fit: contain;
+
+    opacity: 0;
+}
+
+
+/* Image Reveal Animation */
+
+.page-four.show-big-flower
+.big-sunflower-image {
+
+    animation:
+        sunflowerImageGrow
+        2.2s
+        cubic-bezier(.25,.8,.25,1)
+        forwards;
+}
+
+
+@keyframes sunflowerImageGrow {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translate(-50%,-50%)
+            scale(.4)
+            translateY(80px);
+    }
+
+    65% {
+
+        opacity: 1;
+
+        transform:
+            translate(-50%,-50%)
+            scale(1.05)
+            translateY(-5px);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translate(-50%,-50%)
+            scale(1)
+            translateY(0);
+    }
+}
+
+
+/* =====================================================
+   QUOTE
+===================================================== */
+
+.flower-quote {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 35px;
+
+    transform:
+        translateX(-50%)
+        translateY(20px);
+
+    width: 90vw;
+
+    max-width: 600px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(20px,3vw,28px);
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    color: #ffd6e4;
+
+    opacity: 0;
+
+    text-shadow:
+        0 0 12px
+        rgba(255,87,150,.45);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+
+.page-four.show-quote
+.flower-quote {
+
+    opacity: 1;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+
+/* =====================================================
+   PAGE 4 → PAGE 5 CONTINUE BUTTON
+===================================================== */
+
+.page-five-continue-btn {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: -15px;
+
+    transform:
+        translateX(-50%);
+
+    padding:
+        12px 30px;
+
+    border:
+        1px solid
+        rgba(255,180,210,.65);
+
+    border-radius: 50px;
+
+    background:
+        rgba(255,255,255,.08);
+
+    color: white;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size: 14px;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 0 12px
+        rgba(255,87,150,.25);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity .8s ease,
+        transform .3s ease,
+        background .3s ease;
+}
+
+
+/* Show button after quote */
+
+.page-four.show-quote
+.page-five-continue-btn {
+
+    opacity: 1;
+
+    pointer-events: auto;
+}
+
+
+.page-five-continue-btn:hover {
+
+    background:
+        rgba(233,0,95,.7);
+
+    transform:
+        translateX(-50%)
+        translateY(-3px)
+        scale(1.05);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .big-sunflower-area {
+
+        width: 100vw;
+
+        height: 500px;
+
+        top: 55%;
+    }
+
+    .big-sunflower-image {
+
+        width: 390px;
+
+        max-width: 90vw;
+
+        max-height: 320px;
+    }
+
+    .flower-quote {
+
+        bottom: 45px;
+
+        width: 88vw;
+
+        font-size: 20px;
+
+        line-height: 1.3;
+    }
+
+    .page-five-continue-btn {
+
+        bottom: 0;
+
+        padding:
+            11px 26px;
+
+        font-size: 13px;
+    }
+}
+
+/* =====================================================
+   PAGE 5
+===================================================== */
+
+.page-five {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            #521631 0%,
+            #260b1b 48%,
+            #0b0308 100%
+        );
+
+    z-index: 600;
+}
+
+.page-five-content {
+    width: 90%;
+    max-width: 800px;
+
+    text-align: center;
+}
+
+.page-five-quote {
+    margin: 0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(28px,5vw,52px);
+
+    line-height: 1.3;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    color: #ffd6e4;
+
+    text-shadow:
+        0 0 12px
+        rgba(255,87,150,.55),
+
+        0 0 30px
+        rgba(255,20,110,.35);
+}
+
+
+/* =====================================================
+   PAGE 5 MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .page-five-content {
+        width: 88%;
+    }
+
+    .page-five-quote {
+        font-size: 27px;
+        line-height: 1.4;
+        letter-spacing: 1.2px;
+    }
+
+}
