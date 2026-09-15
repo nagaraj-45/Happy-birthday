@@ -2737,3 +2737,145 @@ body {
     }
 
 }
+/* =====================================================
+   MOBILE PHOTOS — ONE BY ONE
+   Added only for mobile photo layout
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .photo-grid {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 28px !important;
+        padding: 10px 0 !important;
+        margin-top: 25px !important;
+    }
+
+    .photo-card {
+        width: 92% !important;
+        max-width: 360px !important;
+        padding: 0 !important;
+        background: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        transform: none !important;
+    }
+
+    .photo-card img {
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        display: block !important;
+        object-fit: contain !important;
+        border: none !important;
+        outline: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+
+    .photo-card:nth-child(1),
+    .photo-card:nth-child(2),
+    .photo-card:nth-child(3),
+    .photo-card:nth-child(4),
+    .photo-card:nth-child(5),
+    .photo-card:nth-child(6),
+    .photo-card:nth-child(7),
+    .photo-card:nth-child(8) {
+        transform: none !important;
+    }
+
+    .photo-card:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+
+    .photos-title {
+        font-size: 28px;
+        margin-top: 35px;
+    }
+}
+
+
+/* =====================================================
+   SMALL MOBILE PHOTOS
+===================================================== */
+
+@media (max-width: 450px) {
+
+    .birthday-screen {
+        padding: 40px 12px 70px;
+    }
+
+    .birthday-heading {
+        font-size: 58px;
+    }
+
+    .birthday-subtext {
+        font-size: 13px;
+        padding: 0 10px;
+    }
+
+    .photos-title {
+        font-size: 26px;
+    }
+
+    .photo-grid {
+        gap: 25px !important;
+    }
+
+    .photo-card {
+        width: 94% !important;
+        max-width: 350px !important;
+    }
+
+    .photo-card img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .photo-card {
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+        background: transparent !important;
+        padding: 0 !important;
+    }
+
+    .photo-card img {
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
+}
+
+/* =====================================================
+   MOBILE PHOTO — REMOVE WHITE FRAME ONLY
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .photo-card {
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+        background: transparent !important;
+        padding: 0 !important;
+    }
+
+    .photo-card img {
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+        background: transparent !important;
+    }
+
+}
